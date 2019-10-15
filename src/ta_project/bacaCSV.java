@@ -42,7 +42,7 @@ public class bacaCSV {
         return matrix;
      }
     
-    public double[][] strtodouble (){
+    public double[][] strtodouble (String data[][]){
         double dmat[][] = new double [matrix.length][matrix[0].length];
         for (int i = 0 ; i < matrix.length; i++)
         {
@@ -55,11 +55,19 @@ public class bacaCSV {
         
         return dmat;
     }
-        
+    
+    public double[][] gabung(){
+        return strtodouble(dataValue());
+    }
+    
     public void print (double dmat[][]) {
-        int a = matrix.length;
-        int b = matrix[0].length;
-        System.out.println("a = "+a+" b = "+b);
+        for (int i = 0; i < dmat.length; i++)
+        {
+            for (int j = 0; j <dmat[0].length; j++)
+            {
+                System.out.println("dmat["+i+"]["+j+"] = "+dmat[i][j]);
+            }
+        }        
     }
  } 
 

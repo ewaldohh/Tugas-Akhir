@@ -18,19 +18,20 @@ public class main {
     public static void main(String[] args) {
         // TODO code application logic here
         bacaCSV CSV = new bacaCSV();
-        CSV.dataValue();
+        CSV.print(CSV.gabung());
+        
         normalisasi normalin = new normalisasi();
-        normalin.dataValue();       
-        //CSV.strtodouble();
-        //normalin.db_h_pembukaan(CSV.strtodouble());
-        //normalin.db_h_tertinggi(CSV.strtodouble());
-        //normalin.db_h_terendah(CSV.strtodouble());
-        //normalin.db_h_penutupan(CSV.strtodouble());
+        
         SOM p_som = new SOM();
-        p_som.dataValue();
-        //p_som.inisialisasi_bobot();
-        //normalin.db_normalisasi(normalin.db_h_pembukaan(CSV.strtodouble()), normalin.db_h_tertinggi(CSV.strtodouble()), normalin.db_h_terendah(CSV.strtodouble()), normalin.db_h_penutupan(CSV.strtodouble()));        
-        p_som.nilai_dj(p_som.inisialisasi_bobot(), normalin.db_normalisasi(normalin.db_h_pembukaan(CSV.strtodouble()), normalin.db_h_tertinggi(CSV.strtodouble()), normalin.db_h_terendah(CSV.strtodouble()), normalin.db_h_penutupan(CSV.strtodouble())));
+        //p_som.dataValue();
+        //p_som.nilai_dj(p_som.inisialisasi_bobot(), normalin.data_baru(CSV.gabung()));
+        
+        backpropagation bp = new backpropagation();
+        
+        double db_norm[][] = normalin.data_baru(CSV.gabung());
+        double y[] = bp.y_netk(bp.z_netj(db_norm));
+        double faktor[] = bp.error_u_keluaran(y, db_norm);
+        bp.perubahan_wkj(faktor, bp.zj(db_norm));
+        bp.error_u_tersembunyi(bp.bobot_lk(), faktor);
     }
-    
 }
