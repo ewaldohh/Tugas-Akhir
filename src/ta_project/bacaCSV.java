@@ -22,7 +22,7 @@ public class bacaCSV {
     
     public String matrix[][] = null;
     public String[][] dataValue () {
-        String letakfile = "D:/Folder Belajar/SMT 8/test.csv";  
+        String letakfile = "src/dataset/test.csv";  
         String thisLine;
          try {
             BufferedReader br = new BufferedReader(new FileReader(letakfile));
