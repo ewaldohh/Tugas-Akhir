@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ta_project;
+package controller;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -13,16 +13,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-       
+
 /**
  *
- * @author Ewaldo
+ * @author shola
  */
-public class bacaCSV {
-    
+public class Praprocess {
     public String matrix[][] = null;
-    public String[][] dataValue () {
-        String letakfile = "src/dataset/test.csv";  
+    public String[][] dataValue (String filename) {
+        String letakfile = filename;  
         String thisLine;
          try {
             BufferedReader br = new BufferedReader(new FileReader(letakfile));
@@ -34,10 +33,10 @@ public class bacaCSV {
                 matrix = new String[lines.size()][0];
                 lines.toArray(matrix);
             } catch (IOException ex) {
-                Logger.getLogger(bacaCSV.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(Praprocess.class.getName()).log(Level.SEVERE, null, ex);
             }             
          } catch (FileNotFoundException ex) {
-             Logger.getLogger(bacaCSV.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(Praprocess.class.getName()).log(Level.SEVERE, null, ex);
          }       
         return matrix;
      }
@@ -49,25 +48,23 @@ public class bacaCSV {
             for (int j = 0 ; j < matrix[0].length ; j++)
             {
                 dmat[i][j] = Double.parseDouble(matrix[i][j]);
-                //System.out.println("dmat["+i+"]["+j+"] = "+dmat[i][j]);
-            }
+          }
         }
         
         return dmat;
     }
     
-    public double[][] gabung(){
-        return strtodouble(dataValue());
+    public double[][] getdata(String filename){
+        return strtodouble(dataValue(filename));
     }
     
-    public void print (double dmat[][]) {
-        for (int i = 0; i < dmat.length; i++)
+    public void print (double data[][]) {
+        for (int i = 0; i < data.length; i++)
         {
-            for (int j = 0; j <dmat[0].length; j++)
+            for (int j = 0; j <data[0].length; j++)
             {
-                System.out.println("dmat["+i+"]["+j+"] = "+dmat[i][j]);
+                System.out.println("data["+i+"]["+j+"] = "+data[i][j]);
             }
         }        
     }
- } 
-
+}

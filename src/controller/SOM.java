@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ta_project;
+package controller;
 
 import java.util.Random;
 
@@ -11,13 +11,8 @@ import java.util.Random;
  *
  * @author Ewaldo
  */
-public class SOM extends bacaCSV{
+public class SOM extends Praprocess{
     cetak ctk = new cetak();
-
-    @Override
-    public String[][] dataValue() {
-        return super.dataValue(); //To change body of generated methods, choose Tools | Templates.
-    }
     
     public double[][] inisialisasi_bobot(){
         Random randomNumbers = new Random();

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ta_project;
+package controller;
 
 import java.util.Random;
 
@@ -11,7 +11,7 @@ import java.util.Random;
  *
  * @author Ewaldo
  */
-public class backpropagation{
+public class Backpropagation{
 Random randomNumbers = new Random();
 double konstanta_mtk = 2.71828182845904;
 double laju_pembelajaran = 0.2;
